@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Pessoal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho e Menu de Navegação por Âncoras -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Kaymer Soares Dantas</div>
+            
+            <!-- Botão Hamburguer para Mobile -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">☰</button>
+            
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="#sobre">Sobre mim</a></li>
+                    <li><a href="#formacao">Formação</a></li>
+                    <li><a href="#portfolio">Portfólio</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><button id="themeToggle" class="btn-theme">🌓 Tema</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- SEÇÃO 1: Sobre Mim -->
+        <section id="sobre" class="secao">
+            <div class="conteudo">
+                <h1>Olá, eu me chamo Kaymer Soares</h1>
+                <p>Desde cedo, eu já dava sinais de que meu futuro seria na tecnologia. Enquanto outras crianças apenas brincavam, eu desmontava brinquedos, rádios e telefones antigos só pelo prazer de descobrir como funcionavam. Anos mais tarde, essa mesma curiosidade me levou a trabalhar com manutenção e conserto de computadores.</p>
+                <p>Mas eu queria mais do que apenas consertar o hardware: eu queria criar a inteligência que roda nele. É por isso que hoje curso <strong>Análise e Desenvolvimento de Sistemas</strong>, onde transformo aquela mesma paixão de infância em linhas de código funcionais.</p>
+                <p>Busco minha primeira oportunidade no mercado de desenvolvimento para criar sistemas que facilitem a vida das pessoas e para conectar minha bagagem prática com o desenvolvimento web.</p>
+                <p class="hobbies-text"><strong>Hobbies:</strong> Para renovar as energias, busco o equilíbrio entre o foco e a adrenalina. Adoro passar meu tempo livre pedalando, correndo ou explorando novas histórias nos videogames.</p>
+  
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: Formação -->
+        <section id="formacao" class="secao bg-alternativo">
+            <div class="conteudo">
+                <h2>Minha Formação</h2>
+                <div class="cards-container">
+                    <div class="card">
+                        <h3>Análise e Desenvolvimento de Sistemas</h3>
+                        <p><strong>Instituição:</strong> Centro Universitário Internacional - UNINTER</p>
+                        <p><strong>Período:</strong> Junho de 2025 - Cursando</p>
+                        
+                        <h4 style="margin-top: 10px; color: var(--cor-destaque);">Principais Competências Desenvolvidas:</h4>
+                        <ul>
+                            <li>Lógica de Programação e Algoritmos</li>
+                            <li>Fundamentos de Desenvolvimento Web (HTML5, CSS3 e JavaScript)</li>
+                            <li>Modelagem de Banco de Dados</li>
+                            <li>Engenharia de Requisitos e Software</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Idiomas</h3>
+                        <p>Português (Nativo) | Inglês (Intermediário)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: Portfólio -->
+        <section id="portfolio" class="secao">
+            <div class="conteudo">
+                <h2>Meus Projetos (Portfólio)</h2>
+                <div class="grid-portfolio">
+                    <div class="projeto-card">
+                        <h3>Projeto Jogo Mata-Mosquito</h3>
+                        <p>Aplicação interativa desenvolvida usando puramente lógica de programação JavaScript e manipulação do DOM.</p>
+                        <a href="https://github.com" target="_blank" class="btn-link">Ver Código no GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 4: Contato -->
+        <section id="contato" class="secao bg-alternativo">
+            <div class="conteudo">
+                <h2>Entre em Contato</h2>
+                
+                <!-- O action vazio previne redirecionamentos indesejados no JS -->
+                <form id="formContato" novalidate>
+                    <div class="grupo-campo">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+                    </div>
+                    
+                    <div class="grupo-campo">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" placeholder="usuario@dominio.com">
+                    </div>
+                    
+                    <div class="grupo-campo">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Sua mensagem..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+                </form>
+                
+                <!-- Elemento para exibir mensagens de sucesso/erro via JS -->
+                <div id="statusFormulario" class="status-msg"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Desenvolvido por Kaymer Soares Dantas</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
