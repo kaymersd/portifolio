@@ -1,24 +1,24 @@
-// --- IMPORTANTE: Lembre-se de adicionar comentários próprios explicando as lógicas de relevância! ---
-
+// Espera a página carregar toda antes de rodar o script para não dar erro de elemento sumido
 document.addEventListener("DOMContentLoaded", () => {
     
-    // 1. Alternador de Tema (Claro / Escuro)
+    // 1. Sistema do Botão do Tema Escuro / Claro
     const btnTema = document.getElementById("themeToggle");
     
     btnTema.addEventListener("click", () => {
-        // Alterna a classe no elemento principal HTML
+        // Coloca ou tira a classe 'dark-theme' do body toda vez que clica
         document.body.classList.toggle("dark-theme");
     });
 
-    // 2. Menu Responsivo 
+    // 2. Menu do Celular (Hambúrguer)
     const menuToggle = document.getElementById("menuToggle");
     const navMenu = document.getElementById("navMenu");
 
     menuToggle.addEventListener("click", () => {
+        // Abre e fecha a barrinha do menu no mobile
         navMenu.classList.toggle("active");
     });
 
-    // Fecha o menu automaticamente ao clicar em um link de âncora
+    // Se o usuário clicar em um link do menu, fecha a barra para não cobrir a tela
     const linksMenu = document.querySelectorAll("#navMenu a");
     linksMenu.forEach(link => {
         link.addEventListener("click", () => {
@@ -26,55 +26,55 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 3. Validação Complexa e Simulação de Envio do Formulário
+    // 3. Validação do Formulário de Contato
     const form = document.getElementById("formContato");
     const statusForm = document.getElementById("statusFormulario");
 
     form.addEventListener("submit", (evento) => {
-        // Interrompe o envio nativo da página
+        // Segura o envio padrão para a página não atualizar sozinha
         evento.preventDefault();
 
-        // Captura de valores dos inputs limpando espaços extras
+        // Pega o que foi digitado e o trim() tira os espaços vazios que as pessoas deixam sem querer
         const nome = document.getElementById("nome").value.trim();
         const email = document.getElementById("email").value.trim();
         const mensagem = document.getElementById("mensagem").value.trim();
 
-        // Expressão Regular (Regex) para validar padrão estrito de e-mail
+        // Regra para checar se o e-mail tem o formato certo (texto + @ + texto + .com)
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        // Reset visual da caixa de status
+        // Limpa as mensagens de erro antigas toda vez que a pessoa tenta reenviar
         statusForm.style.display = "none";
         statusForm.style.backgroundColor = "";
         statusForm.style.color = "";
 
-        // Verificação de campos em branco
+        // Testa se tem algum campo em branco
         if (nome === "" || email === "" || mensagem === "") {
             statusForm.textContent = "Erro: Por favor, preencha todos os campos obrigatórios!";
-            statusForm.style.backgroundColor = "#ffdddd";
+            statusForm.style.backgroundColor = "#ffdddd"; // Fundo vermelho clarinho
             statusForm.style.color = "#cc0000";
             statusForm.style.display = "block";
-            return;
+            return; // Para o código aqui se der erro
         }
 
-        // Teste de validação sintática do e-mail
+        // Valida se o e-mail digitado faz sentido com a nossa regra lá de cima
         if (!regexEmail.test(email)) {
             statusForm.textContent = "Erro: Insira um formato de e-mail válido (ex: usuario@dominio.com).";
             statusForm.style.backgroundColor = "#ffdddd";
             statusForm.style.color = "#cc0000";
             statusForm.style.display = "block";
-            return;
+            return; // Para o código aqui se o e-mail estiver errado
         }
 
-        // Caso passe nas validações: Simulação de Sucesso
+        // Se o código chegou até aqui, significa que deu tudo certo!
         statusForm.textContent = "Mensagem enviada com sucesso! Obrigado pelo contato.";
-        statusForm.style.backgroundColor = "#ddffdd";
+        statusForm.style.backgroundColor = "#ddffdd"; // Fundo verde clarinho
         statusForm.style.color = "#006600";
         statusForm.style.display = "block";
 
-        // Alerta nativo exigido pelos critérios da atividade
+        // Alerta na tela para dar um feedback direto pro usuário
         alert("Mensagem enviada com sucesso!");
 
-        // Limpa totalmente os campos do formulário pós-envio
+        // Limpa todos os campos do formulário para o usuário poder escrever outro se quiser
         form.reset();
     });
 });

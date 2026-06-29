@@ -1,5 +1,6 @@
-/* --- Variáveis de Cor para Tema Claro/Escuro (CSS Moderno) --- */
+/* --- Variáveis de Cor para Tema Claro/Escuro --- */
 :root {
+    /* Cores padrão para quando o site abre no modo claro */
     --bg-principal: #ffffff;
     --bg-secundario: #f4f4f9;
     --texto-principal: #333333;
@@ -7,74 +8,71 @@
     --cor-destaque: #007acc;
     --cor-header: #1e1e24;
     --texto-header: #ffffff;
+    --borda-card: rgba(0, 0, 0, 0.1); /* Guarda a cor da borda clara */
 }
 
-/* Modificadores para o Tema Escuro ativado por JavaScript */
+/* Quando o JavaScript ativa a classe 'dark-theme', essas cores substituem as de cima */
 body.dark-theme {
     --bg-principal: #121212;
     --bg-secundario: #1e1e1e;
     --texto-principal: #f5f5f5;
     --texto-secundario: #cccccc;
     --cor-destaque: #3792cb;
+    --borda-card: rgba(255, 255, 255, 0.1); /* Deixa a borda clarinha para aparecer no fundo escuro */
 }
 
 /* --- Resets Básicos --- */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-#sobre p {
-    margin-bottom: 20px; /* Garante o espaçamento ideal entre os parágrafos */
+    box-sizing: border-box; /* Garante que o padding não mude o tamanho total dos elementos */
 }
 
 html {
-    scroll-behavior: smooth; /* Rolagem suave nativa para as âncoras */
+    scroll-behavior: smooth; /* Deixa aquela rolagem suave bonita quando clica no menu */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
     background-color: var(--bg-principal);
     color: var(--texto-principal);
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s; /* Suaviza a troca de cor ao mudar o tema */
     line-height: 1.6;
 }
 
-/* --- Ajustes específicos para os parágrafos da seção Sobre Mim --- */
-.conteudo p {
-    margin-bottom: 20px; /* Cria o espaçamento entre cada parágrafo */
-    color: var(--texto-secundario); /* Usa a sua variável de cor cinza para melhor contraste */
-    font-size: 1.05rem; /* Ajuste sutil no tamanho para melhorar a leitura */
+/* --- Ajustes dos Parágrafos (Sobre Mim e Conteúdos) --- */
+.conteudo p, #sobre p {
+    margin-bottom: 20px; /* Cria um espaço legal entre os parágrafos para não ficar tudo colado */
+    color: var(--texto-secundario); 
+    font-size: 1.05rem; 
 }
 
-/* Garante que o último parágrafo da seção não tenha margem sobressalente */
+/* Tira a margem de baixo do último parágrafo para não sobrar espaço feio no fim da seção */
 .conteudo p:last-child {
     margin-bottom: 0;
 }
 
-/* Seletor específico para destacar a linha ou bloco de Hobbies */
+/* Estilo para separar visualmente o bloco de Hobbies do resto do texto */
 .hobbies-text {
-    margin-top: 35px; /* Afasta visualmente a seção de hobbies do restante da história */
+    margin-top: 35px; 
     padding-top: 15px;
-    border-top: 1px solid rgba(128, 128, 128, 0.2); /* Cria uma linha divisória sutil que se adapta ao tema claro e escuro */
+    border-top: 1px solid rgba(128, 128, 128, 0.2); /* Linha divisória fina que funciona nos dois temas */
 }
-
 
 /* --- Header e Menu --- */
 header {
     background-color: var(--cor-header);
     color: var(--texto-header);
-    position: fixed;
+    position: fixed; /* Deixa o menu sempre fixo no topo da tela enquanto rola a página */
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 1000; /* Garante que o menu fique por cima de qualquer outro elemento */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .nav-container {
     max-width: 1100px;
-    margin: 0 auto;
+    margin: 0 auto; /* Centraliza a barra de navegação no meio da tela */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -88,25 +86,28 @@ header {
 
 nav ul {
     display: flex;
-    list-style: none;
+    list-style: none; /* Tira as bolinhas padrão da lista do menu */
     align-items: center;
 }
 
 nav ul li a {
     color: var(--texto-header);
-    text-decoration: none;
+    text-decoration: none; /* Tira aquele sublinhado padrão de links */
     padding: 8px 15px;
     transition: color 0.2s;
 }
 
+/* Muda a cor do link do menu quando passa o mouse por cima */
 nav ul li a:hover {
     color: var(--cor-destaque);
 }
+
 .card ul {
-    list-style-type: none; /* Remove as bolinhas completamente */
+    list-style-type: none; /* Garante que nenhuma lista dentro de cards tenha bolinhas */
     padding-left: 0;
 }
 
+/* Estilo do botão de trocar o tema */
 .btn-theme {
     background: transparent;
     border: 1px solid var(--texto-header);
@@ -117,6 +118,7 @@ nav ul li a:hover {
     margin-left: 15px;
 }
 
+/* Botão hambúrguer do mobile (fica escondido no computador) */
 .menu-toggle {
     display: none;
     background: none;
@@ -126,15 +128,16 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
-/* --- Estrutura das Seções --- */
+/* --- Estrutura das Seções do Site --- */
 .secao {
-    padding: 100px 20px 60px 20px; /* Margem superior evita sumir atrás do header fixo */
+    padding: 100px 20px 60px 20px; /* Esse padding no topo impede que o texto suma atrás do menu fixo */
     min-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* Classe para alternar o fundo das seções e não ficar tudo da mesma cor */
 .bg-alternativo {
     background-color: var(--bg-secundario);
 }
@@ -149,20 +152,21 @@ nav ul li a:hover {
     color: var(--cor-destaque);
 }
 
-/* --- Cards e Layouts --- */
+/* --- Cards e Layouts (Portfólio / Serviços) --- */
 .cards-container, .grid-portfolio {
     margin-top: 20px;
 }
 
 .card, .projeto-card {
     background-color: var(--bg-principal);
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid var(--borda-card); 
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 15px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Sombra leve para dar efeito de profundidade */
 }
 
+/* Estilo dos botões/links dentro dos cards */
 .btn-link {
     display: inline-block;
     margin-top: 10px;
@@ -177,7 +181,7 @@ nav ul li a:hover {
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 15px; /* Cria um espaço padrão entre cada campo do formulário */
     margin-top: 20px;
 }
 
@@ -205,11 +209,12 @@ form {
     font-weight: bold;
 }
 
+/* Caixa de aviso que aparece quando envia o formulário */
 .status-msg {
     margin-top: 15px;
     padding: 10px;
     border-radius: 4px;
-    display: none;
+    display: none; /* Fica escondida por padrão e o JavaScript faz aparecer */
     font-weight: bold;
 }
 
@@ -220,14 +225,14 @@ footer {
     padding: 20px;
 }
 
-/* --- Responsividade (Design Responsivo Obrigatório) --- */
+/* --- Regras para Telas Menores (Celulares) --- */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block;
+        display: block; /* Faz o botão hambúrguer aparecer no celular */
     }
 
     nav {
-        display: none; /* Escondido por padrão no mobile */
+        display: none; /* Esconde a lista do menu padrão no mobile */
         width: 100%;
         position: absolute;
         top: 60px;
@@ -235,18 +240,19 @@ footer {
         background-color: var(--cor-header);
     }
 
+    /* O JavaScript adiciona essa classe para abrir o menu quando clicam no hambúrguer */
     nav.active {
-        display: block; /* Ativado via JavaScript */
+        display: block; 
     }
 
     nav ul {
-        flex-direction: column;
+        flex-direction: column; /* Empilha os links do menu um embaixo do outro */
         padding: 20px;
         gap: 15px;
     }
 
     .btn-theme {
         margin-left: 0;
-        width: 100%;
+        width: 100%; /* Faz o botão de tema ocupar a largura toda no celular */
     }
 }
