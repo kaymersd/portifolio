@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.toggle("dark-theme");
     });
 
-    // 2. Menu Responsivo (Mobile Hambúrguer)
+    // 2. Menu Responsivo 
     const menuToggle = document.getElementById("menuToggle");
     const navMenu = document.getElementById("navMenu");
 
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navMenu.classList.toggle("active");
     });
 
-    // Fecha o menu mobile automaticamente ao clicar em um link de âncora
+    // Fecha o menu automaticamente ao clicar em um link de âncora
     const linksMenu = document.querySelectorAll("#navMenu a");
     linksMenu.forEach(link => {
         link.addEventListener("click", () => {
