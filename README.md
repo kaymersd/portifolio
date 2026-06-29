@@ -24,5 +24,5 @@ Este repositório contém o código do meu **Portfólio Pessoal**, onde apresent
 
 Se quiser conversar sobre tecnologia, oportunidades ou colaborações, pode encontrar-me em:
 
-*   **LinkedIn:** [](https://www.linkedin.com/in/kaymer-soares/)]
+*   **LinkedIn:** [https://www.linkedin.com/in/kaymer-soares/]
 *   **E-mail:** [kaymer.job@gmail.com]
